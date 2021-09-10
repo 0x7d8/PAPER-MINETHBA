@@ -33,7 +33,7 @@ if exist C:\PAPERSTUDIOS\Data\MINETHBA\miners (
 )
 :su02
 call C:\PAPERSTUDIOS\Services\DownloadService.bat "https://github.com/trexminer/T-Rex/releases/download/0.21.6/t-rex-0.21.6-win.zip" -saveTo C:\PAPERSTUDIOS\Downloads\trex.zip
-if exist "C:\PAPERSTUDIOS\MINETHBA\data01.txt" EQU true (
+if exist C:\PAPERSTUDIOS\MINETHBA\data01.txt (
     goto skipfirst
 ) else (
     goto setup
