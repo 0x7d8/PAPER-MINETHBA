@@ -32,24 +32,12 @@ if exist C:\PAPERSTUDIOS\Data\MINETHBA\miners (
 )
 :su02
 call C:\PAPERSTUDIOS\Services\DownloadService.bat "https://github.com/trexminer/T-Rex/releases/download/0.21.6/t-rex-0.21.6-win.zip" -saveTo C:\PAPERSTUDIOS\Downloads\trex.zip
-
-echo WELCOME!
-ping localhost -n 2 >nul
-echo USE THIS TOOL TO MINE ETHEREUM!
-ping localhost -n 2 >nul
-cls
-echo YOU NEED WINRAR TO CONTINUE...
-pause
-cls
-echo Ethermine Wallet ID:
-set /p wallet=ID: 
-cls
-ehco ...
-ping localhost -n 1 >nul
-cls
-echo Ethermine Worker ID:
-set /p worker=ID: 
-cls
+if exist "C:\PAPERSTUDIOS\MINETHBA\mine.exe" EQU true (
+    goto skipfirst
+) else (
+    goto setup
+)
+:skipfirst
 echo ...
 "C:\Program Files\Winrar\WinRAR.exe" x "C:\PAPERSTUDIOS\Downloads\trex.zip" *.* "C:\PAPERSTUDIOS\Data\MINETHBA\miners\"
 ping localhost -n 2 >nul
@@ -85,6 +73,25 @@ del C:\PAPERSTUDIOS\Data\MINETHBA\shortcu.bat
 del C:\PAPERSTUDIOS\Temp\minethbainstaller.bat
 exit
 )
+:setup
+echo WELCOME!
+ping localhost -n 2 >nul
+echo USE THIS TOOL TO MINE ETHEREUM!
+ping localhost -n 2 >nul
+cls
+echo YOU NEED WINRAR TO CONTINUE...
+pause
+cls
+echo Ethermine Wallet ID:
+set /p wallet=ID: 
+cls
+ehco ...
+ping localhost -n 1 >nul
+cls
+echo Ethermine Worker ID:
+set /p worker=ID: 
+cls
+goto skipfirst
 :update
 cls
 echo THERE IS A UPDATE AVAILABLE
