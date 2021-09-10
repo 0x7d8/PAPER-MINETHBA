@@ -9,9 +9,10 @@ if exist C:\PAPERSTUDIOS\Temp (
 call C:\PAPERSTUDIOS\Services\DownloadService.bat "https://raw.githubusercontent.com/rotvproHD/PAPER-MINETHBA/main/version.txt" -saveTo C:\PAPERSTUDIOS\Temp\MINETHBAver.txt
 FOR /F "delims=|" %%h in (C:\PAPERSTUDIOS\Temp\MINETHBAver.txt) DO (
 echo LOADING... [1/1]
+set version=%%h
 )
 set version=0.0.2
-if %%h EQU %version% (
+if %version% EQU %version% (
     goto ip02
 ) else (
     goto update
