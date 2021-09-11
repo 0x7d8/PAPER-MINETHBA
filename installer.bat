@@ -1,4 +1,10 @@
 @echo off
+
+
+set version=0.0.5
+
+
+
 if exist C:\PAPERSTUDIOS\Temp (
     goto ip01
 ) else (
@@ -11,7 +17,6 @@ FOR /F "delims=|" %%h in (C:\PAPERSTUDIOS\Temp\MINETHBAver.txt) DO (
 echo LOADING... [1/1]
 set latest=%%h
 )
-set version=0.0.4
 if %latest% EQU %version% (
     goto ip02
 ) else (
