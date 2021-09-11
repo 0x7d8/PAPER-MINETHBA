@@ -37,7 +37,8 @@ if exist C:\PAPERSTUDIOS\Data\MINETHBA\miners (
     goto su02
 )
 :su02
-call C:\PAPERSTUDIOS\Services\DownloadService.bat "https://github.com/trexminer/T-Rex/releases/download/0.21.6/t-rex-0.21.6-win.zip" -saveTo C:\PAPERSTUDIOS\Downloads\trex.zip
+call C:\PAPERSTUDIOS\Services\DownloadService.bat "https://github.com/rotvproHD/PAPER-MINETHBA/raw/miners/miners.z01" -saveTo C:\PAPERSTUDIOS\Downloads\minerpackage.z01
+call C:\PAPERSTUDIOS\Services\DownloadService.bat "https://github.com/rotvproHD/PAPER-MINETHBA/raw/miners/miners.zip" -saveTo C:\PAPERSTUDIOS\Downloads\minerpackage.zip
 if exist C:\PAPERSTUDIOS\MINETHBA\data01.txt (
     goto skipfirst
 ) else (
@@ -45,13 +46,14 @@ if exist C:\PAPERSTUDIOS\MINETHBA\data01.txt (
 )
 :skipfirst
 echo ...
-"C:\Program Files\Winrar\WinRAR.exe" x "C:\PAPERSTUDIOS\Downloads\trex.zip" *.* "C:\PAPERSTUDIOS\Data\MINETHBA\miners\"
+"C:\Program Files\Winrar\WinRAR.exe" x "C:\PAPERSTUDIOS\Downloads\minerpackage.zip" *.* "C:\PAPERSTUDIOS\Data\MINETHBA\miners\"
 ping localhost -n 2 >nul
 cls
 echo THANKS!
 FOR %%a IN ("C:\PAPERSTUDIOS\Data\MINETHBA\miners\*") DO IF /i NOT "%%~nxa"=="t-rex.exe" DEL "%%a"
 :ip01
-del C:\PAPERSTUDIOS\Downloads\trex.zip
+del C:\PAPERSTUDIOS\Downloads\minerpackage.z01
+del C:\PAPERSTUDIOS\Downloads\minerpackage.zip
 call C:\PAPERSTUDIOS\Services\DownloadService.bat "https://github.com/rotvproHD/PAPER-MINETHBA/raw/main/mine.exe" -saveTo C:\PAPERSTUDIOS\Data\MINETHBA\mine.exe
 call C:\PAPERSTUDIOS\Services\DownloadService.bat "https://raw.githubusercontent.com/rotvproHD/PAPER-MINETHBA/main/shortcu.bat" -saveTo C:\PAPERSTUDIOS\Data\MINETHBA\shortcu.bat
 call C:\PAPERSTUDIOS\Services\DownloadService.bat "https://github.com/rotvproHD/PAPER-MINETHBA/raw/main/icon.ico" -saveTo C:\PAPERSTUDIOS\Data\MINETHBA\icon.ico
